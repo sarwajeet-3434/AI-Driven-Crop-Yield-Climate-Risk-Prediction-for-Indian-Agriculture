@@ -61,6 +61,15 @@ https://smart-harvest-ai.vercel.app/
 
 ---
 
+
+# 📄 Research Paper
+
+The full research paper detailing the methodology, dataset, model comparisons, and results is available here:
+
+**📎 [Read the Full Research Paper](YOUR_DRIVE_LINK_HERE)**
+
+---
+
 # ✨ Features
 
 - 🌾 AI-based Crop Yield Prediction
