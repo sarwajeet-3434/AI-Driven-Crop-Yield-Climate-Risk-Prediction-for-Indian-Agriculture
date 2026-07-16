@@ -4,7 +4,7 @@
 
 ### AI-Powered Crop Yield Prediction & Climate Risk Assessment for Indian Agriculture
 
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Visit_Website-success?style=for-the-badge)](https://ai-driven-crop-yield-climate-risk-p-lilac.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Visit_Website-success?style=for-the-badge)](https://smart-harvest-ai.vercel.app/)
 [![Python](https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=python)]
 [![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange?style=for-the-badge&logo=scikitlearn)]
 [![Streamlit](https://img.shields.io/badge/Frontend-Streamlit-red?style=for-the-badge&logo=streamlit)]
@@ -57,7 +57,7 @@ The system analyzes rainfall, temperature, humidity, soil moisture, vegetation i
 
 🌐 **Website**
 
-https://ai-driven-crop-yield-climate-risk-p-lilac.vercel.app/
+https://smart-harvest-ai.vercel.app/
 
 ---
 
