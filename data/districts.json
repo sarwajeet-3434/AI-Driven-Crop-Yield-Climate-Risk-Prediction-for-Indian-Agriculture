@@ -1,0 +1,252 @@
+[
+  {
+    "district": "Darbhanga",
+    "risk_index": 0.938,
+    "category": "High"
+  },
+  {
+    "district": "Nagpur",
+    "risk_index": 0.789,
+    "category": "High"
+  },
+  {
+    "district": "Khammam",
+    "risk_index": 0.78,
+    "category": "High"
+  },
+  {
+    "district": "Gwalior",
+    "risk_index": 0.77,
+    "category": "High"
+  },
+  {
+    "district": "Bikaner",
+    "risk_index": 0.758,
+    "category": "High"
+  },
+  {
+    "district": "Karimnagar",
+    "risk_index": 0.747,
+    "category": "High"
+  },
+  {
+    "district": "Amritsar",
+    "risk_index": 0.721,
+    "category": "High"
+  },
+  {
+    "district": "Jalandhar",
+    "risk_index": 0.711,
+    "category": "High"
+  },
+  {
+    "district": "Surat",
+    "risk_index": 0.674,
+    "category": "High"
+  },
+  {
+    "district": "Bathinda",
+    "risk_index": 0.652,
+    "category": "Medium"
+  },
+  {
+    "district": "Agra",
+    "risk_index": 0.61,
+    "category": "Medium"
+  },
+  {
+    "district": "Rourkela",
+    "risk_index": 0.61,
+    "category": "Medium"
+  },
+  {
+    "district": "Indore",
+    "risk_index": 0.57,
+    "category": "Medium"
+  },
+  {
+    "district": "Muzaffarpur",
+    "risk_index": 0.568,
+    "category": "Medium"
+  },
+  {
+    "district": "Cuttack",
+    "risk_index": 0.56,
+    "category": "Medium"
+  },
+  {
+    "district": "Berhampur",
+    "risk_index": 0.553,
+    "category": "Medium"
+  },
+  {
+    "district": "Pune",
+    "risk_index": 0.519,
+    "category": "Medium"
+  },
+  {
+    "district": "Bhavnagar",
+    "risk_index": 0.509,
+    "category": "Medium"
+  },
+  {
+    "district": "Kota",
+    "risk_index": 0.506,
+    "category": "Medium"
+  },
+  {
+    "district": "Lucknow",
+    "risk_index": 0.5,
+    "category": "Medium"
+  },
+  {
+    "district": "Kanpur",
+    "risk_index": 0.483,
+    "category": "Medium"
+  },
+  {
+    "district": "Coimbatore",
+    "risk_index": 0.461,
+    "category": "Medium"
+  },
+  {
+    "district": "Patna",
+    "risk_index": 0.452,
+    "category": "Medium"
+  },
+  {
+    "district": "Vadodara",
+    "risk_index": 0.442,
+    "category": "Medium"
+  },
+  {
+    "district": "Nashik",
+    "risk_index": 0.437,
+    "category": "Medium"
+  },
+  {
+    "district": "Bhagalpur",
+    "risk_index": 0.427,
+    "category": "Medium"
+  },
+  {
+    "district": "Sambalpur",
+    "risk_index": 0.398,
+    "category": "Medium"
+  },
+  {
+    "district": "Chennai",
+    "risk_index": 0.396,
+    "category": "Medium"
+  },
+  {
+    "district": "Allahabad",
+    "risk_index": 0.38,
+    "category": "Medium"
+  },
+  {
+    "district": "Warangal",
+    "risk_index": 0.377,
+    "category": "Medium"
+  },
+  {
+    "district": "Salem",
+    "risk_index": 0.374,
+    "category": "Medium"
+  },
+  {
+    "district": "Aurangabad",
+    "risk_index": 0.372,
+    "category": "Medium"
+  },
+  {
+    "district": "Madurai",
+    "risk_index": 0.368,
+    "category": "Medium"
+  },
+  {
+    "district": "Ludhiana",
+    "risk_index": 0.359,
+    "category": "Medium"
+  },
+  {
+    "district": "Jabalpur",
+    "risk_index": 0.357,
+    "category": "Medium"
+  },
+  {
+    "district": "Trichy",
+    "risk_index": 0.331,
+    "category": "Medium"
+  },
+  {
+    "district": "Bhopal",
+    "risk_index": 0.33,
+    "category": "Medium"
+  },
+  {
+    "district": "Jodhpur",
+    "risk_index": 0.324,
+    "category": "Low"
+  },
+  {
+    "district": "Hyderabad",
+    "risk_index": 0.324,
+    "category": "Low"
+  },
+  {
+    "district": "Ahmedabad",
+    "risk_index": 0.323,
+    "category": "Low"
+  },
+  {
+    "district": "Patiala",
+    "risk_index": 0.322,
+    "category": "Low"
+  },
+  {
+    "district": "Rewa",
+    "risk_index": 0.32,
+    "category": "Low"
+  },
+  {
+    "district": "Udaipur",
+    "risk_index": 0.315,
+    "category": "Low"
+  },
+  {
+    "district": "Kolhapur",
+    "risk_index": 0.307,
+    "category": "Low"
+  },
+  {
+    "district": "Varanasi",
+    "risk_index": 0.302,
+    "category": "Low"
+  },
+  {
+    "district": "Bhubaneswar",
+    "risk_index": 0.296,
+    "category": "Low"
+  },
+  {
+    "district": "Gaya",
+    "risk_index": 0.272,
+    "category": "Low"
+  },
+  {
+    "district": "Rajkot",
+    "risk_index": 0.26,
+    "category": "Low"
+  },
+  {
+    "district": "Nizamabad",
+    "risk_index": 0.219,
+    "category": "Low"
+  },
+  {
+    "district": "Jaipur",
+    "risk_index": 0.179,
+    "category": "Low"
+  }
+]
