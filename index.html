@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartHarvest AI — Crop Yield & Climate Risk Prediction for Indian Districts</title>
+<meta name="description" content="An end-to-end machine learning system predicting crop yield and climate risk across 50 Indian districts and 10 crops, powered by XGBoost (93.1% R²) and a composite Climate Risk Index.">
+<meta name="keywords" content="crop yield prediction, climate risk, machine learning, XGBoost, agriculture AI, India, NDVI">
+<meta property="og:title" content="SmartHarvest AI — Crop Yield & Climate Risk Prediction">
+<meta property="og:description" content="AI-driven crop yield and climate risk prediction across 50 Indian districts, built on 8,000+ records and five ML models.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><rect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%2346a866%22/></svg>">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark"></span>SmartHarvest AI</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#dataset">Dataset</a></li>
+      <li><a href="models.html">Models</a></li>
+      <li><a href="prediction.html">Prediction</a></li>
+      <li><a href="documentation.html">Docs</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+      </button>
+      <a href="prediction.html" class="btn btn-primary btn-sm">Try Live Demo</a>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================== HERO ============================== -->
+<header class="hero">
+  <div class="hero-grid"></div>
+  <div class="container hero-content">
+    <div class="eyebrow">Final-year AI/ML systems project</div>
+    <h1>Predicting crop yield<br>and <span class="grad">climate risk</span><br><span data-typing='["field by field.", "district by district.", "season by season."]'></span><span class="type-caret"></span></h1>
+    <p class="lede">An end-to-end machine learning pipeline that turns rainfall, temperature, NDVI, and soil-moisture readings into yield forecasts and a composite Climate Risk Index — for 50 Indian districts and 10 major crops, 2005–2023.</p>
+    <div class="hero-actions">
+      <a href="prediction.html" class="btn btn-primary magnetic">Try Live Demo</a>
+      <a href="#about" class="btn btn-ghost magnetic">View Project</a>
+      <a href="documentation.html" class="btn btn-ghost magnetic">Documentation</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num count-up" data-count="8000">0</div><div class="stat-label">Training records</div></div>
+      <div class="stat"><div class="stat-num count-up" data-count="50">0</div><div class="stat-label">Districts covered</div></div>
+      <div class="stat"><div class="stat-num count-up" data-count="10">0</div><div class="stat-label">Crop types</div></div>
+      <div class="stat"><div class="stat-num"><span class="count-up" data-count="93.1" data-decimals="1">0</span>%</div><div class="stat-label">Best model R² (XGBoost)</div></div>
+    </div>
+  </div>
+</header>
+<div class="scanline-divider"></div>
+
+<!-- ============================== ABOUT ============================== -->
+<section id="about">
+  <div class="container">
+    <div class="two-col">
+      <div class="reveal">
+        <div class="eyebrow">About the project</div>
+        <h2 style="font-size:clamp(1.7rem,3vw,2.3rem);">Yield forecasting built on the same signal a farmer already reads — vegetation, rain, and heat</h2>
+        <p class="mt-16 small">SmartHarvest AI was built as a final-year engineering project to demonstrate a full applied ML lifecycle: synthetic-but-realistic agro-climatic data generation, exploratory analysis, model comparison, a composite risk index, and a production-shaped API — not just a notebook.</p>
+        <p class="mt-16 small">The system ingests seven agro-climatic inputs (rainfall, temperature, humidity, NDVI, soil moisture, area, year) per district-crop-year and outputs predicted yield, estimated production, and a Climate Risk Index in one call.</p>
+        <div class="mt-24" style="display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="badge">Python · scikit-learn · XGBoost</span>
+          <span class="badge">Flask REST API</span>
+          <span class="badge">AWS EC2 / Lambda</span>
+          <span class="badge">Vanilla HTML/CSS/JS frontend</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="card" style="padding:0; overflow:hidden;">
+          <div id="ndvi-scale-chart" class="chart-card" style="padding:26px;">
+            <div class="eyebrow" style="margin-bottom:18px;">NDVI → risk color scale used throughout this site</div>
+            <div style="height:14px; border-radius:8px; background: var(--ndvi-gradient);"></div>
+            <div style="display:flex; justify-content:space-between; margin-top:10px; font-family:var(--f-mono); font-size:.75rem; color:var(--ink-faint);">
+              <span>0.0 — bare soil / high risk</span><span>1.0 — dense canopy / low risk</span>
+            </div>
+          </div>
+          <div class="divider" style="margin:0;"></div>
+          <div style="padding:26px;">
+            <div class="eyebrow" style="margin-bottom:14px;">Problem statement</div>
+            <p class="small">Indian agriculture is highly climate-sensitive, yet district-level yield forecasting tools remain scarce for smallholder planning. This project builds a reproducible pipeline that predicts yield and quantifies climate risk from routinely available agro-climatic variables.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FEATURES ============================== -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Capabilities</div>
+      <h2>What the system does</h2>
+      <p>Seven inputs in, four decisions out — yield, production, risk, and a plain-language recommendation.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card-glow feature-card reveal">
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></div>
+        <h3>Yield &amp; production forecasting</h3>
+        <p>Predicts tonnes-per-hectare yield and estimated total production for any district-crop-year combination in the trained range.</p>
+      </div>
+      <div class="card card-glow feature-card reveal">
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <h3>Composite Climate Risk Index</h3>
+        <p>Combines rainfall variability, NDVI stress, and temperature anomaly into a single 0–1 risk score with Low / Medium / High labels.</p>
+      </div>
+      <div class="card card-glow feature-card reveal">
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+        <h3>Five-model comparison</h3>
+        <p>Linear Regression, Random Forest, Gradient Boosting, XGBoost, and a Bidirectional LSTM benchmarked on identical splits.</p>
+      </div>
+      <div class="card card-glow feature-card reveal">
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+        <h3>District risk heatmap</h3>
+        <p>All 50 districts scored and color-coded so climate-vulnerable regions are visible at a glance.</p>
+      </div>
+      <div class="card card-glow feature-card reveal">
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3>Backend-agnostic frontend</h3>
+        <p>Ships with a self-contained demo prediction engine and calls a real Flask/FastAPI backend automatically once one is configured — the UI never breaks.</p>
+      </div>
+      <div class="card card-glow feature-card reveal">
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v4H4zM4 12h16v8H4z"/></svg></div>
+        <h3>Cloud-ready deployment</h3>
+        <p>Designed for AWS EC2 / Lambda + API Gateway + S3, or any container host — documented step by step.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== AI PIPELINE ============================== -->
+<section id="pipeline">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">AI pipeline</div>
+      <h2>From raw records to a served prediction</h2>
+      <p>Seven stages, each reproducible from the source repository.</p>
+    </div>
+    <div class="pipeline reveal" id="pipeline-steps"></div>
+  </div>
+</section>
+
+<!-- ============================== DATASET ============================== -->
+<section id="dataset" class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Dataset</div>
+      <h2>8,000 district-crop-year records, 2005–2023</h2>
+      <p>Seven agro-climatic input features, two agronomic targets — sampled rows below, full dataset in the repository under <code>data/dataset.csv</code>.</p>
+    </div>
+    <div class="grid grid-4 reveal" style="margin-bottom:32px;">
+      <div class="card"><div class="stat-num">50</div><div class="stat-label mt-8">Districts</div></div>
+      <div class="card"><div class="stat-num">10</div><div class="stat-label mt-8">Crops</div></div>
+      <div class="card"><div class="stat-num">19</div><div class="stat-label mt-8">Years (2005–2023)</div></div>
+      <div class="card"><div class="stat-num">7</div><div class="stat-label mt-8">Input features</div></div>
+    </div>
+    <div class="table-wrap reveal">
+      <table>
+        <thead><tr><th>District</th><th>Year</th><th>Crop</th><th>Rainfall (mm)</th><th>Temp (°C)</th><th>NDVI</th><th>Soil moisture</th><th>Yield (t/ha)</th></tr></thead>
+        <tbody id="dataset-sample-body"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== RESULTS / MODEL SNAPSHOT ============================== -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Results</div>
+      <h2>XGBoost wins on RMSE, MAE, and R²</h2>
+      <p>Full breakdown, per-model diagnostics, and feature importance are on the <a href="models.html" style="color:var(--accent); text-decoration:underline;">Model Comparison</a> page.</p>
+    </div>
+    <div class="two-col reveal">
+      <div class="card chart-card" id="results-bar-chart"></div>
+      <div class="card chart-card" id="results-donut-chart"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== AWS ARCHITECTURE ============================== -->
+<section id="architecture" class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Cloud architecture</div>
+      <h2>Deployment on AWS</h2>
+      <p>The trained model is served behind a REST API; the frontend calls it over HTTPS with a demo-mode fallback.</p>
+    </div>
+    <div class="arch-diagram reveal">
+      <div class="arch-row">
+        <div class="arch-node"><div class="arch-tag">Client</div><h4>Static frontend</h4><p>HTML/CSS/JS hosted on GitHub Pages, Netlify, or S3 + CloudFront.</p></div>
+        <div class="arch-node"><div class="arch-tag">Edge</div><h4>API Gateway</h4><p>HTTPS endpoint, throttling, and CORS in front of the prediction service.</p></div>
+        <div class="arch-node"><div class="arch-tag">Compute</div><h4>Lambda / EC2</h4><p>Flask app serving <code>/api/predict</code>, loads the pickled XGBoost model + scaler.</p></div>
+      </div>
+      <div class="arch-row">
+        <div class="arch-node"><div class="arch-tag">Storage</div><h4>S3</h4><p>Model artifacts (.pkl), dataset snapshots, and generated report assets.</p></div>
+        <div class="arch-node"><div class="arch-tag">Training</div><h4>Offline pipeline</h4><p><code>notebooks/training.py</code> runs preprocessing → training → evaluation → risk scoring.</p></div>
+        <div class="arch-node"><div class="arch-tag">Monitoring</div><h4>CloudWatch</h4><p>Request logs and latency metrics for the Lambda/EC2 endpoint.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== GALLERY ============================== -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Project gallery</div>
+      <h2>District climate-risk heatmap</h2>
+      <p>All 50 districts, colored by composite Climate Risk Index. Hover any cell for the exact score.</p>
+    </div>
+    <div class="card reveal" style="overflow-x:auto;">
+      <div id="district-heatmap" class="chart-card"></div>
+      <div class="legend mt-24">
+        <span class="legend-item"><span class="legend-swatch" style="background:var(--risk-low)"></span>Low risk (&lt; 0.33)</span>
+        <span class="legend-item"><span class="legend-swatch" style="background:var(--risk-medium)"></span>Medium risk (0.33–0.66)</span>
+        <span class="legend-item"><span class="legend-swatch" style="background:var(--risk-high)"></span>High risk (&gt; 0.66)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FUTURE SCOPE ============================== -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Future scope</div>
+      <h2>Where this goes next</h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-item"><h4>Satellite NDVI ingestion</h4><p>Replace synthetic NDVI with live Sentinel-2 / MODIS feeds via the Copernicus or Google Earth Engine APIs.</p></div>
+      <div class="tl-item"><h4>Sub-district granularity</h4><p>Extend from district-level to block/tehsil-level predictions using higher-resolution weather grids.</p></div>
+      <div class="tl-item"><h4>Farmer-facing mobile app</h4><p>Progressive web app with offline caching for low-connectivity rural use, building on this PWA-ready frontend.</p></div>
+      <div class="tl-item"><h4>Ensemble + uncertainty bounds</h4><p>Stack XGBoost with the Bi-LSTM and report prediction intervals, not just point estimates.</p></div>
+      <div class="tl-item"><h4>Government advisory integration</h4><p>Feed high-risk district alerts into existing state agriculture department dashboards.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CONTACT ============================== -->
+<section id="contact">
+  <div class="container">
+    <div class="two-col">
+      <div class="reveal">
+        <div class="eyebrow">Get in touch</div>
+        <h2 style="font-size:clamp(1.6rem,3vw,2.1rem);">Questions about the model, dataset, or deployment?</h2>
+        <p class="small mt-16">This is a final-year engineering project — happy to walk through the methodology, share the notebooks, or discuss extending it for a real deployment.</p>
+        <div class="mt-24" style="display:flex; flex-direction:column; gap:14px;">
+          <a href="mailto:hello@example.com" class="small" style="color:var(--ink);">✉ hello@example.com</a>
+          <a href="#" class="small" style="color:var(--ink);">🔗 github.com/your-username/crop-yield-ai-project</a>
+          <a href="#" class="small" style="color:var(--ink);">💼 linkedin.com/in/your-profile</a>
+        </div>
+      </div>
+      <form class="card reveal" onsubmit="event.preventDefault(); this.querySelector('.form-status').textContent='Message captured locally — wire this form to your backend or a form service to send it.';">
+        <div class="field-group"><label>Name</label><input type="text" required placeholder="Your name"></div>
+        <div class="field-group"><label>Email</label><input type="text" required placeholder="you@example.com"></div>
+        <div class="field-group"><label>Message</label><textarea rows="4" required placeholder="What would you like to know?" style="width:100%; padding:11px 14px; border-radius:8px; border:1px solid var(--line-strong); background:var(--bg); color:var(--ink); font-family:var(--f-body); resize:vertical;"></textarea></div>
+        <button type="submit" class="btn btn-primary btn-block">Send message</button>
+        <p class="form-status small mt-16"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="brand"><span class="brand-mark"></span>SmartHarvest AI</a>
+        <p class="mt-16">AI-driven crop yield and climate risk prediction for Indian districts. A final-year engineering project.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Project</h5>
+        <a href="index.html#about">About</a>
+        <a href="index.html#dataset">Dataset</a>
+        <a href="models.html">Model comparison</a>
+        <a href="prediction.html">Prediction demo</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="documentation.html">Documentation</a>
+        <a href="#">Research paper</a>
+        <a href="#">GitHub repository</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="mailto:hello@example.com">hello@example.com</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> SmartHarvest AI. Built for academic demonstration.</span>
+      <span>MIT License</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/prediction.js"></script>
+<script src="js/animation.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  // pipeline steps
+  const pipeHost = $("#pipeline-steps");
+  pipeHost.innerHTML = PIPELINE_STEPS.map((s, i) => `
+    <div class="pipe-step">
+      <div class="pipe-index">0${i + 1}</div>
+      <h4>${s.title}</h4>
+      <p>${s.desc}</p>
+    </div>`).join("");
+
+  // dataset sample table
+  const sample = (await loadJSON("data/sample.json")) || [];
+  $("#dataset-sample-body").innerHTML = sample.map(r => `
+    <tr>
+      <td style="font-family:var(--f-body);">${r.District}</td>
+      <td>${r.Year}</td>
+      <td style="font-family:var(--f-body);">${r.Crop}</td>
+      <td>${r.Rainfall}</td>
+      <td>${r.Temperature}</td>
+      <td>${r.NDVI || "—"}</td>
+      <td>${r.Soil_Moisture}</td>
+      <td>${parseFloat(r.Yield).toFixed(2)}</td>
+    </tr>`).join("");
+
+  // results bar chart (RMSE/MAE lower-is-better across models)
+  $("#results-bar-chart").innerHTML =
+    `<div class="eyebrow" style="margin-bottom:16px;">R² by model</div>` +
+    renderBarChart(MODEL_STATS.map(m => m.model.split(" ")[0]), MODEL_STATS.map(m => m.r2), { max: 1 });
+
+  // results donut (risk category share across districts)
+  const districts = (await loadJSON("data/districts.json")) || [];
+  const low = districts.filter(d => d.category === "Low").length;
+  const med = districts.filter(d => d.category === "Medium").length;
+  const high = districts.filter(d => d.category === "High").length;
+  const donut = renderDonut(["Low", "Medium", "High"], [low, med, high], { colors: ["#46a866", "#d9b23f", "#c9612f"] });
+  $("#results-donut-chart").innerHTML = `<div class="eyebrow" style="margin-bottom:16px;">District risk category share</div>${donut.svg}${donut.legendHTML}`;
+
+  // heatmap
+  if (districts.length) {
+    $("#district-heatmap").innerHTML = renderHeatmap(districts, { cols: 10, cell: 46 });
+  }
+
+  // animated counters
+  $all(".count-up").forEach(el => {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          animateCount(el, parseFloat(el.dataset.count), { decimals: parseInt(el.dataset.decimals || "0") });
+          io.unobserve(el);
+        }
+      });
+    });
+    io.observe(el);
+  });
+});
+</script>
+</body>
+</html>

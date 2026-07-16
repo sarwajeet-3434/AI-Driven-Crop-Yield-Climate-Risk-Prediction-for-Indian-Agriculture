@@ -1,0 +1,16 @@
+{
+  "name": "SmartHarvest AI — Crop Yield & Climate Risk Prediction",
+  "short_name": "SmartHarvest AI",
+  "description": "AI-driven crop yield and climate risk prediction for 50 Indian districts.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a1710",
+  "theme_color": "#46a866",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='36' fill='%2346a866'/></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}

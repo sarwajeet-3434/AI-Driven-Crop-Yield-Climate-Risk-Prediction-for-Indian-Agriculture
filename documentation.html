@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentation — SmartHarvest AI</title>
+<meta name="description" content="Full technical documentation: system architecture, methodology, ML pipeline, API reference, and deployment guide for SmartHarvest AI.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><rect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%2346a866%22/></svg>">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark"></span>SmartHarvest AI</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#dataset">Dataset</a></li>
+      <li><a href="models.html">Models</a></li>
+      <li><a href="prediction.html">Prediction</a></li>
+      <li><a href="documentation.html" class="active">Docs</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+      </button>
+      <a href="prediction.html" class="btn btn-primary btn-sm">Try Live Demo</a>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom:10px;">
+  <div class="container hero-content" style="max-width:820px;">
+    <div class="eyebrow">Documentation</div>
+    <h1 style="font-size:clamp(1.9rem,4vw,2.8rem);">Everything under the hood</h1>
+    <p class="lede">System architecture, methodology, ML pipeline, API reference, and deployment steps — in one place.</p>
+  </div>
+</header>
+<div class="scanline-divider"></div>
+
+<section style="padding-top:56px;">
+  <div class="container doc-layout">
+    <nav class="doc-nav" id="doc-nav">
+      <a href="#overview">Overview</a>
+      <a href="#problem">Problem statement</a>
+      <a href="#architecture">System architecture</a>
+      <a href="#methodology">Methodology</a>
+      <a href="#dataset">Dataset</a>
+      <a href="#algorithms">Algorithms</a>
+      <a href="#api">API reference</a>
+      <a href="#frontend">Frontend structure</a>
+      <a href="#deployment">Deployment guide</a>
+      <a href="#future">Future scope</a>
+      <a href="#references">References</a>
+    </nav>
+
+    <div>
+      <div class="doc-section" id="overview">
+        <h2>Overview</h2>
+        <p>SmartHarvest AI is an end-to-end machine learning system that predicts district-level crop yield and a composite Climate Risk Index for 50 Indian districts and 10 major crops, using 8,000+ records spanning 2005–2023.</p>
+        <p>The system has three layers: an offline training pipeline (Python), a REST API that serves the trained model, and this static frontend, which works standalone in a demo mode and upgrades automatically once a real backend is connected.</p>
+      </div>
+
+      <div class="doc-section" id="problem">
+        <h2>Problem statement</h2>
+        <p>Indian agriculture is highly sensitive to rainfall variability and temperature extremes, yet accessible, district-level yield forecasting and risk-scoring tools remain limited for planning and advisory use.</p>
+        <h3>Objectives</h3>
+        <ul>
+          <li>Predict crop yield (t/ha) and total production from routinely available agro-climatic inputs.</li>
+          <li>Quantify climate risk as a single, interpretable composite index.</li>
+          <li>Compare multiple ML approaches and select the best-performing model objectively.</li>
+          <li>Package the system as a deployable API and a usable web interface.</li>
+        </ul>
+      </div>
+
+      <div class="doc-section" id="architecture">
+        <h2>System architecture</h2>
+        <p>Static frontend → API Gateway → Flask app (EC2/Lambda) → pickled XGBoost model + scaler → response. Training happens offline and produces the model artifacts consumed at inference time. See the <a href="index.html#architecture" style="color:var(--accent); text-decoration:underline;">architecture diagram</a> on the home page.</p>
+      </div>
+
+      <div class="doc-section" id="methodology">
+        <h2>Methodology</h2>
+        <h3>Machine learning pipeline</h3>
+        <ol style="padding-left:20px; color:var(--ink-dim);">
+          <li>Data generation / ingestion (<code>data/generate_dataset.py</code>)</li>
+          <li>Preprocessing — imputation, encoding, scaling (<code>src/preprocessing.py</code>)</li>
+          <li>Exploratory data analysis (<code>src/eda.py</code>)</li>
+          <li>Model training — 5 algorithms (<code>src/models.py</code>, <code>src/lstm_model.py</code>)</li>
+          <li>Climate Risk Index computation (<code>src/risk_index.py</code>)</li>
+          <li>Evaluation and best-model selection</li>
+          <li>API serving (<code>backend/app.py</code>)</li>
+        </ol>
+      </div>
+
+      <div class="doc-section" id="dataset">
+        <h2>Dataset</h2>
+        <p>8,000 rows across 50 districts, 10 crops, and 19 years (2005–2023). Seven input features: Rainfall, Temperature, Humidity, NDVI, Soil Moisture, Area, Crop, Year. Two targets: Production and Yield.</p>
+        <div class="code-block mt-16">District,Year,Crop,Rainfall,Temperature,NDVI,Soil_Moisture,Humidity,Area,Production,Yield</div>
+      </div>
+
+      <div class="doc-section" id="algorithms">
+        <h2>Algorithms &amp; model comparison</h2>
+        <p>Linear Regression, Gradient Boosting, Random Forest, XGBoost, and a Bidirectional LSTM (rice time series) were trained on an identical 80/20 split. Full metrics are on the <a href="models.html" style="color:var(--accent); text-decoration:underline;">Model Comparison</a> page — XGBoost was selected for production with R² = 0.931.</p>
+      </div>
+
+      <div class="doc-section" id="api">
+        <h2>API reference</h2>
+        <h3>POST /api/predict</h3>
+        <div class="code-block">{
+  <span class="k">"crop"</span>: 0,
+  <span class="k">"district"</span>: 12,
+  <span class="k">"rainfall"</span>: 850,
+  <span class="k">"temperature"</span>: 27,
+  <span class="k">"humidity"</span>: 65,
+  <span class="k">"ndvi"</span>: 0.62,
+  <span class="k">"soil_moisture"</span>: 45,
+  <span class="k">"area"</span>: 8000,
+  <span class="k">"year"</span>: 2024
+}</div>
+        <p class="mt-16">Response:</p>
+        <div class="code-block">{
+  <span class="k">"predicted_yield"</span>: 2.84,
+  <span class="k">"estimated_production"</span>: 22720,
+  <span class="k">"risk_index"</span>: 0.32,
+  <span class="k">"risk_label"</span>: <span class="k">"Low Risk"</span>,
+  <span class="k">"factors"</span>: { ... }
+}</div>
+        <h3>GET /api/health</h3>
+        <p>Returns <code>{ "status": "ok", "model": "loaded", "version": "1.0.0" }</code> — used by the frontend to decide live vs. demo mode.</p>
+        <h3>GET /api/districts, GET /api/model-stats, GET /api/crops</h3>
+        <p>Return pre-computed district risk scores, model comparison metrics, and the crop lookup table respectively.</p>
+      </div>
+
+      <div class="doc-section" id="frontend">
+        <h2>Frontend structure</h2>
+        <div class="code-block">index.html          Home — hero, about, features, pipeline, dataset, results, architecture, gallery, future scope, contact
+prediction.html     AI Prediction Dashboard
+models.html         Model comparison &amp; charts
+documentation.html  This page
+
+css/style.css        design tokens + components
+css/animations.css   motion, kept isolated
+css/responsive.css   breakpoints
+
+js/config.js         API_URL — the only file to edit for a real backend
+js/app.js            shared data (model stats, feature importance, pipeline steps)
+js/prediction.js     live fetch() + demo prediction engine + risk formula
+js/charts.js         dependency-free SVG chart renderers
+js/animation.js       scroll reveal, typing effect, theme toggle, mouse glow</div>
+      </div>
+
+      <div class="doc-section" id="deployment">
+        <h2>Deployment guide</h2>
+        <h3>Frontend — GitHub Pages</h3>
+        <div class="code-block"><span class="k">git push origin main</span>
+# Settings → Pages → Deploy from branch → main → /root</div>
+        <h3>Frontend — Netlify / Vercel</h3>
+        <p>Drag-and-drop the project folder, or connect the GitHub repo. No build step required — it's static HTML/CSS/JS.</p>
+        <h3>Backend</h3>
+        <p>Deploy <code>backend/app.py</code> (Flask) to Render, Railway, or AWS EC2/Lambda + API Gateway. Once live, set <code>API_URL</code> in <code>js/config.js</code> — no other frontend changes needed.</p>
+      </div>
+
+      <div class="doc-section" id="future">
+        <h2>Future scope</h2>
+        <p>See the <a href="index.html#gallery" style="color:var(--accent); text-decoration:underline;">Future Scope timeline</a> on the home page — satellite NDVI ingestion, sub-district granularity, a PWA mobile client, ensemble uncertainty bounds, and government advisory integration.</p>
+      </div>
+
+      <div class="doc-section" id="references">
+        <h2>References</h2>
+        <ul>
+          <li>Chen, T. &amp; Guestrin, C. — "XGBoost: A Scalable Tree Boosting System" (2016)</li>
+          <li>Breiman, L. — "Random Forests" (2001)</li>
+          <li>India Meteorological Department — district rainfall normals</li>
+          <li>MODIS / Sentinel-2 NDVI product documentation</li>
+          <li>Project research paper — <code>RESEARCH_PAPER.md</code> in the repository</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <span>© <span data-year></span> SmartHarvest AI. Built for academic demonstration.</span>
+      <a href="index.html" class="small">← Back to home</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+<script src="js/animation.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const links = $all("#doc-nav a");
+  const sections = links.map(l => document.querySelector(l.getAttribute("href")));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = "#" + e.target.id;
+        links.forEach(l => l.classList.toggle("active", l.getAttribute("href") === id));
+      }
+    });
+  }, { rootMargin: "-40% 0px -50% 0px" });
+  sections.forEach(s => s && io.observe(s));
+});
+</script>
+</body>
+</html>

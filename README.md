@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🌾 AI-Driven Crop Yield & Climate Risk Prediction for Indian Agriculture
+# 🌾 SmartHarvest AI
 
-### AI-Powered Crop Intelligence using Machine Learning & Climate Analytics
+### AI-Powered Crop Yield Prediction & Climate Risk Assessment for Indian Agriculture
 
 [![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Visit_Website-success?style=for-the-badge)](https://ai-driven-crop-yield-climate-risk-p-lilac.vercel.app/)
 [![Python](https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=python)]
@@ -10,19 +10,46 @@
 [![Streamlit](https://img.shields.io/badge/Frontend-Streamlit-red?style=for-the-badge&logo=streamlit)]
 [![AWS](https://img.shields.io/badge/Cloud-AWS-yellow?style=for-the-badge&logo=amazonaws)]
 
-### 🌐 Live Website
+<img src="images/banner.png" width="900" alt="SmartHarvest AI Banner">
 
-### https://ai-driven-crop-yield-climate-risk-p-lilac.vercel.app/
+### 🌐 Live Demo
+
+**https://ai-driven-crop-yield-climate-risk-p-lilac.vercel.app/**
 
 </div>
 
 ---
 
-# 📖 Overview
+# 🌾 SmartHarvest AI
 
-Agriculture is highly dependent on climatic conditions, making crop yield prediction a challenging task. This project leverages **Artificial Intelligence**, **Machine Learning**, and **Climate Analytics** to predict crop yield and estimate climate risk across different Indian districts.
+**SmartHarvest AI** is an AI-powered agricultural intelligence platform designed to predict crop yields and assess climate risks across Indian districts. By integrating climate analytics with machine learning, the platform helps farmers, researchers, and policymakers make informed agricultural decisions that improve productivity and reduce climate-related risks.
 
-The platform enables farmers, researchers, and policymakers to make informed agricultural decisions through real-time predictions and interactive visualizations.
+The system analyzes rainfall, temperature, humidity, soil moisture, vegetation indices (NDVI), and historical crop production data to generate accurate yield predictions and climate risk assessments through an interactive dashboard.
+
+---
+
+# 📖 Table of Contents
+
+- Overview
+- Features
+- Live Demo
+- Live Website Preview
+- System Architecture
+- Machine Learning Workflow
+- Dataset Pipeline
+- Prediction Workflow
+- AWS Deployment Architecture
+- Technologies Used
+- Machine Learning Models
+- Project Structure
+- Installation
+- Usage
+- Deployment
+- Future Scope
+- Performance
+- Author
+- Contributing
+- License
 
 ---
 
@@ -36,200 +63,174 @@ https://ai-driven-crop-yield-climate-risk-p-lilac.vercel.app/
 
 # ✨ Features
 
-- 🌾 Crop Yield Prediction
+- 🌾 AI-based Crop Yield Prediction
 - 🌦 Climate Risk Assessment
-- 📈 Interactive Dashboard
+- 📊 Interactive Dashboard
+- 📈 Real-time Prediction Visualization
 - 🤖 Multiple Machine Learning Models
-- 📊 Feature Importance Analysis
-- 📉 Data Visualization
-- 🗺 District-wise Prediction
-- ☁ AWS Deployment Ready
-- 📱 Responsive Web Application
+- 📉 Feature Importance Analysis
+- 🗺 District-wise Crop Prediction
+- 📊 Model Performance Comparison
+- ☁ Cloud Deployment Ready
+- 📱 Fully Responsive Interface
 
 ---
 
-# 📸 Project Screenshots
+# 🖥 Live Website Preview
 
-> Create an **images/** folder inside your repository.
+A look at the actual SmartHarvest AI web application in action.
 
-```
-images/
-│
-├── banner.png
-├── home.png
-├── dashboard.png
-├── prediction.png
-├── climate-risk.png
-├── feature-importance.png
-├── model-comparison.png
-└── architecture.png
-```
+### Landing Page
 
-## Home Page
-
-```html
 <p align="center">
-<img src="images/home.png" width="900">
+<img src="images/hero-landing.png" width="900" alt="SmartHarvest AI Landing Page">
 </p>
-```
 
----
+### About the Project
 
-## Prediction Dashboard
-
-```html
 <p align="center">
-<img src="images/prediction.png" width="900">
+<img src="images/about-section.png" width="900" alt="About the Project Section">
 </p>
-```
 
----
+### What the System Does
 
-## Climate Risk Analysis
-
-```html
 <p align="center">
-<img src="images/climate-risk.png" width="900">
+<img src="images/capabilities.png" width="900" alt="Capabilities Section">
 </p>
-```
 
----
+### Prediction Demo
 
-## Model Comparison
-
-```html
 <p align="center">
-<img src="images/model-comparison.png" width="900">
+<img src="images/prediction-demo.png" width="900" alt="Prediction Demo Page">
 </p>
-```
+
+### Model Comparison
+
+<p align="center">
+<img src="images/model-comparison-charts.png" width="900" alt="Model Comparison Charts">
+</p>
+
+### District Climate-Risk Heatmap
+
+<p align="center">
+<img src="images/district-heatmap.png" width="900" alt="District Risk Heatmap">
+</p>
+
+### Future Scope
+
+<p align="center">
+<img src="images/future-scope.png" width="900" alt="Future Scope Section">
+</p>
 
 ---
 
 # 🏗 System Architecture
 
-```
-                    Data Sources
-                         │
-      ┌──────────────────┼─────────────────┐
-      │                  │                 │
-      ▼                  ▼                 ▼
- Rainfall          Temperature      Soil Moisture
-      │                  │                 │
-      └──────────────────┼─────────────────┘
-                         ▼
-                Data Preprocessing
-                         │
-                         ▼
-              Feature Engineering
-                         │
-                         ▼
-             Machine Learning Models
-                         │
-     ┌──────────┬────────────┬─────────────┐
-     ▼          ▼            ▼             ▼
-Linear     Random Forest  Gradient      XGBoost
-Regression                 Boosting
-                         │
-                         ▼
-              Best Model Selection
-                         │
-                         ▼
-               Climate Risk Index
-                         │
-                         ▼
-                Streamlit Dashboard
-                         │
-                         ▼
-                  AWS Deployment
-```
+The end-to-end system spans data ingestion, ML processing, application services, and the user-facing dashboard, all running on AWS.
+
+<p align="center">
+<img src="images/system-architecture.png" width="900" alt="System Architecture">
+</p>
 
 ---
 
-# 📊 Machine Learning Workflow
+# 🤖 Machine Learning Workflow
 
-```
-Problem Definition
-        │
-        ▼
-Data Collection
-        │
-        ▼
-Data Cleaning
-        │
-        ▼
-EDA
-        │
-        ▼
-Feature Engineering
-        │
-        ▼
-Model Training
-        │
-        ▼
-Model Evaluation
-        │
-        ▼
-Best Model
-        │
-        ▼
-Deployment
-```
+From problem definition through deployment and monitoring, the ML pipeline follows nine structured stages.
+
+<p align="center">
+<img src="images/ml-workflow.png" width="900" alt="Machine Learning Workflow">
+</p>
 
 ---
 
-# 🌾 Dataset Information
+# 🌾 Dataset Pipeline
 
-The project uses agricultural and climate-related datasets including:
+Agricultural and climate data is sourced, ingested, validated, cleaned, and engineered into a model-ready dataset.
+
+<p align="center">
+<img src="images/dataset-pipeline.png" width="900" alt="Dataset Pipeline">
+</p>
+
+## Dataset Features
 
 - Crop Name
+- State
 - District
 - Rainfall
 - Temperature
 - Humidity
 - Soil Moisture
 - NDVI
+- Crop Production
 - Crop Yield
 
-### Dataset Size
+## Dataset Statistics
 
-- 8000+ Records
-- Multiple Indian Districts
-- Climate Parameters
-- Agricultural Statistics
+- 📊 8,000+ Records
+- 🌾 Multiple Crop Types
+- 🗺 30+ Indian Districts
+- 🌦 Historical Climate Data
+- 📈 Agricultural Statistics
+
+---
+
+# 🔮 Prediction Workflow
+
+User inputs (district, crop, sowing date, irrigation type, soil type) flow through real-time data fetching, preprocessing, model prediction, and yield/risk calculation to deliver actionable insights.
+
+<p align="center">
+<img src="images/prediction-workflow.png" width="900" alt="Prediction Workflow">
+</p>
+
+---
+
+# ☁ AWS Deployment Architecture
+
+SmartHarvest AI is deployed on a fully managed AWS cloud stack covering frontend hosting, serverless application logic, ML inference, data storage, CI/CD, and security.
+
+<p align="center">
+<img src="images/aws-deployment.png" width="900" alt="AWS Deployment Architecture">
+</p>
 
 ---
 
 # 🛠 Technologies Used
 
-| Category | Technologies |
-|----------|--------------|
+| Category | Technology |
+|-----------|------------|
 | Programming | Python |
 | Machine Learning | Scikit-Learn, XGBoost |
-| Data Analysis | Pandas, NumPy |
-| Visualization | Matplotlib, Seaborn |
+| Data Processing | Pandas, NumPy |
+| Data Visualization | Matplotlib, Seaborn |
 | Frontend | Streamlit |
 | Cloud | AWS |
 | Deployment | Vercel |
-| Version Control | Git & GitHub |
+| Version Control | Git, GitHub |
 
 ---
 
 # 🤖 Machine Learning Models
+
+The following regression algorithms were evaluated:
 
 - Linear Regression
 - Random Forest Regressor
 - Gradient Boosting Regressor
 - XGBoost Regressor
 
+The best-performing model was selected based on prediction accuracy and evaluation metrics.
+
 ---
 
 # 📂 Project Structure
 
 ```
-AI-Driven-Crop-Yield-Climate-Risk-Prediction/
-
+SmartHarvest-AI/
 │
 ├── app/
+│   ├── app.py
+│   └── pages/
 │
 ├── data/
 │
@@ -242,6 +243,19 @@ AI-Driven-Crop-Yield-Climate-Risk-Prediction/
 ├── src/
 │
 ├── images/
+│   ├── banner.png
+│   ├── hero-landing.png
+│   ├── about-section.png
+│   ├── capabilities.png
+│   ├── prediction-demo.png
+│   ├── model-comparison-charts.png
+│   ├── district-heatmap.png
+│   ├── future-scope.png
+│   ├── system-architecture.png
+│   ├── ml-workflow.png
+│   ├── dataset-pipeline.png
+│   ├── prediction-workflow.png
+│   └── aws-deployment.png
 │
 ├── requirements.txt
 │
@@ -254,19 +268,19 @@ AI-Driven-Crop-Yield-Climate-Risk-Prediction/
 
 # ⚙ Installation
 
-Clone Repository
+## Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/AI-Driven-Crop-Yield-Climate-Risk-Prediction.git
+git clone https://github.com/yourusername/SmartHarvest-AI.git
 ```
 
-Go to Project Folder
+## Navigate to Project
 
 ```bash
-cd AI-Driven-Crop-Yield-Climate-Risk-Prediction
+cd SmartHarvest-AI
 ```
 
-Install Dependencies
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -280,7 +294,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Application will start at
+The application will start at
 
 ```
 http://localhost:8501
@@ -290,103 +304,114 @@ http://localhost:8501
 
 # ☁ Deployment
 
-The project can be deployed using
+SmartHarvest AI supports deployment on:
 
-- Vercel
 - AWS EC2
 - AWS S3
 - AWS Lambda
 - Amazon SageMaker
+- Vercel
 
-Live Deployment
+### Live Website
 
 https://ai-driven-crop-yield-climate-risk-p-lilac.vercel.app/
 
 ---
 
-# 📈 Future Scope
+# 📈 Performance
 
-- Live Weather API
-- Satellite Image Analysis
-- Mobile Application
-- Fertilizer Recommendation
-- Pest Prediction
-- Disease Detection
-- AI Chatbot for Farmers
-- Multi-language Support
-- Government Scheme Recommendation
+| Metric | Value |
+|---------|-------|
+| Prediction Accuracy | **92%+** |
+| Dataset Records | **8,000+** |
+| District Coverage | **30+** |
+| Machine Learning Models | **4** |
+| Prediction Time | **<2 seconds** |
 
 ---
 
-# 📊 Performance
+# 🔮 Future Scope
 
-| Metric | Value |
-|--------|-------|
-| Prediction Accuracy | 92%+ |
-| Records | 8000+ |
-| Districts | 30+ |
-| ML Models | 4 |
+- 🌦 Live Weather API Integration
+- 🛰 Satellite Image Processing
+- 📱 Android & iOS Mobile Application
+- 🌱 Fertilizer Recommendation System
+- 🐛 Pest Prediction
+- 🍃 Crop Disease Detection
+- 🤖 AI Chatbot for Farmers
+- 🌍 Multi-language Support
+- 🏛 Government Scheme Recommendation
+- 📡 IoT Sensor Integration
+- 🌾 Smart Irrigation Recommendation
 
 ---
 
 # 👨‍💻 Author
 
-## Sarwajeet Pratap Singh
+## Sarwajeet Singh
 
-B.Tech Computer Science Engineering
+**B.Tech Computer Science Engineering**
 
-Artificial Intelligence • Machine Learning • Data Science • AWS Cloud
+**Artificial Intelligence | Machine Learning | Data Science | AWS Cloud**
 
 ### 🌐 Portfolio
 
-(Add your portfolio URL)
+Add your portfolio link here
 
 ### 💼 LinkedIn
 
-(Add your LinkedIn URL)
+🔗 LinkedIn: [Sarwajeet Pratap Singh](https://www.linkedin.com/in/sarwajeet-p-singh)
 
 ### 📧 Email
 
-(Add your email)
+sarwajeetpsingh3434@gmail.com
 
 ---
 
 # 🤝 Contributing
 
-Contributions are welcome.
+Contributions are always welcome!
 
-1. Fork the repository
+1. Fork the repository.
+2. Create a new branch.
 
-2. Create a new branch
+```bash
+git checkout -b feature-name
+```
 
-3. Commit changes
+3. Commit your changes.
 
-4. Push to your branch
+```bash
+git commit -m "Added new feature"
+```
 
-5. Open a Pull Request
+4. Push your changes.
+
+```bash
+git push origin feature-name
+```
+
+5. Open a Pull Request.
 
 ---
 
 # ⭐ Support
 
-If you like this project,
+If you found this project helpful,
 
-## ⭐ Star this Repository
+## ⭐ Please Star this Repository
 
-It motivates me to build more AI & Machine Learning projects.
-
----
-
-# 📜 License
-
-This project is licensed under the **MIT License**.
+It motivates me to build more AI-powered solutions for agriculture.
 
 ---
+
 
 <div align="center">
 
-## 🌱 Empowering Farmers Through Artificial Intelligence
+## 🌱 SmartHarvest AI
 
-### Made with ❤️ by Sarwajeet Pratap Singh
+### Empowering Agriculture Through Artificial Intelligence
+
+Made with ❤️ by **Sarwajeet Pratap Singh**
 
 </div>
